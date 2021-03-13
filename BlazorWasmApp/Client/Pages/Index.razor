@@ -1,7 +1,34 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<div>
+    <h2>Movies</h2>
+    <hr />
+    <MoviesList Movies="movies">
+        <NullTemplate>
+            <span style="color: Red">This is Loading...</span>
+        </NullTemplate>
+        <EmptyTemplate>
+            <span style="color: Blue"> No record to see... </span>
+        </EmptyTemplate>
+    </MoviesList>
 
-Welcome to your new app.
+</div>
+<hr>
+@* <div>
+    <h2>Create Movie</h2>
+    <DummyTextbox placeholder="Movie Name" />
+    </div> *@
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code{
+    private List<Movie> movies;
+
+    protected override void OnInitialized()
+    {
+        movies = new List<Movie>()
+        {
+            new Movie() { Title = "Spider-Man: Far From Home", ReleaseDate = new DateTime(2021, 3, 8) },
+            new Movie() { Title = "Fast and the Furies ", ReleaseDate = new DateTime(2018, 12, 12) },
+            new Movie() { Title = "Avenger: The future in the past", ReleaseDate = new DateTime(2019, 7, 12) }
+        };
+    }
+}

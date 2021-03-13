@@ -3,14 +3,7 @@
 <div>
     <h2>Movies</h2>
     <hr />
-    <MoviesList Movies="movies">
-        <NullTemplate>
-            <span style="color: Red">This is Loading...</span>
-        </NullTemplate>
-        <EmptyTemplate>
-            <span style="color: Blue"> No record to see... </span>
-        </EmptyTemplate>
-    </MoviesList>
+    <MoviesList Movies="movies" />
 
 </div>
 <hr>
@@ -24,6 +17,7 @@
 
     protected override void OnInitialized()
     {
+        //await Task.Delay(2000);
         movies = new List<Movie>()
         {
             new Movie() { Title = "Spider-Man: Far From Home", ReleaseDate = new DateTime(2021, 3, 8) },
